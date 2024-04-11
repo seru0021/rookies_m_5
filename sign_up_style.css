@@ -9,7 +9,7 @@ body {
     height: 100vh;
 }
 
-.signup-container {
+.modify-user-container {
     width: 400px;
     background-color: #fff;
     padding: 20px;
@@ -30,12 +30,21 @@ h2 {
     margin-bottom: 5px;
 }
 
-/* 동일한 너비 설정 */
 .input-group input {
-    width: calc(100% - 20px); /* 왼쪽과 오른쪽의 padding 값(10px * 2)을 제외한 100%의 너비 */
+    width: calc(100% - 20px);
     padding: 8px;
     border: 1px solid #ccc;
     border-radius: 4px;
+}
+
+.nickname-keep-group {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px; /* 별명 입력 칸 아래 여백 추가 */
+}
+
+.nickname-keep-group input[type="checkbox"] {
+    margin-right: 5px; /* 체크 박스 오른쪽 여백 추가 */
 }
 
 button {
