@@ -1,0 +1,94 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f0f8ff; /* 하늘색 배경 */
+  }
+  .header {
+    border-bottom: 2px solid #add8e6; /* 연한 하늘색 */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: #f0f8ff; /* 하늘색 배경 */
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1); /* 그림자 효과 */
+  }
+  .logo {
+    width: 35px;
+    height: 26px;
+  }
+  .title {
+    font-size: 32px;
+    font-weight: bold;
+    color: #007bff; /* 짙은 파랑색 */
+    margin-left: 10px;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1); /* 글자 그림자 */
+  }
+  .nav-buttons {
+    display: flex;
+    align-items: center;
+  }
+  .button {
+    background-color: #007bff; /* 짙은 파랑색 */
+    color: #fff; /* 흰색 */
+    padding: 12px 24px;
+    margin-left: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1); /* 입체적 그림자 */
+    transition: transform 0.3s, box-shadow 0.3s; /* 변화에 부드럽게 전환 */
+  }
+  .button:hover {
+    transform: translateY(-2px); /* 마우스 호버 시 약간 위로 이동 */
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2); /* 확대된 그림자 */
+  }
+  .search {
+    border: 2px solid #add8e6; /* 연한 하늘색 */
+    padding: 8px;
+    border-radius: 5px;
+    margin-left: 10px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1); /* 그림자 효과 */
+    color: #007bff; /* 짙은 파랑색 */
+  }
+  .search::placeholder {
+    color: #007bff; /* 짙은 파랑색 */
+    opacity: 0.7;
+  }
+  .main-image {
+    width: 100%;
+    height: 500px;
+    background-image: url('https://sslc.kr/images/logo.png');
+    background-size: cover;
+    background-position: center;
+  }
+  .section {
+    padding: 50px 0;
+    text-align: center;
+    background-color: #f0f8ff; /* 하늘색 배경 */
+  }
+  .section-title {
+    font-size: 42px;
+    font-weight: bold;
+    margin-bottom: 30px;
+    color: #007bff; /* 짙은 파랑색 */
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1); /* 글자 그림자 */
+  }
+  .region {
+    display: inline-block;
+    width: 200px;
+    height: 200px;
+    background-color: #add8e6; /* 연한 하늘색 */
+    color: #007bff; /* 짙은 파랑색 */
+    margin: 20px;
+    line-height: 200px;
+    font-size: 28px;
+    border-radius: 10px;
+    cursor: pointer;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1); /* 입체적 그림자 */
+    transition: transform 0.3s, box-shadow 0.3s; /* 변화에 부드럽게 전환 */
+  }
+  .region:hover {
+    transform: translateY(-2px); /* 마우스 호버 시 약간 위로 이동 */
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2); /* 확대된 그림자 */
+  }
