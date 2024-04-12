@@ -1,0 +1,43 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>회원 수정</title>
+    <!-- 정적 CSS 파일 경로를 설정 -->
+    <link rel="stylesheet" href="{% static 'modify_user_style.css' %}">
+</head>
+<body>
+    <div class="modify-user-container">
+        <h2>회원 수정</h2>
+        <!-- 사용자 정보 수정을 위한 폼 -->
+        <form action="{% url 'update_user' %}" method="post">
+            {% csrf_token %}
+            <div class="input-group">
+                <label for="username">사용자 ID:</label>
+                <input type="text" id="username" name="username" required>
+            </div>
+            <div class="input-group">
+                <label for="nickname">별명:</label>
+                <input type="text" id="nickname" name="nickname" required>
+            </div>
+            <div class="nickname-keep-group">
+                <input type="checkbox" id="keep_nickname" name="keep_nickname">
+                <label for="keep_nickname">현재 별명 유지</label>
+            </div>
+            <div class="input-group">
+                <label for="password">새로운 비밀번호:</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <div class="input-group">
+                <label for="confirm_password">비밀번호 확인:</label>
+                <input type="password" id="confirm_password" name="confirm_password" required>
+            </div>
+            <!-- 폼 제출 버튼 -->
+            <button type="submit">수정 완료</button>
+        </form>
+    </div>
+</body>
+</html>

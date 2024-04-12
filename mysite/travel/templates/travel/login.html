@@ -1,0 +1,26 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <!-- CSS 파일을 장고의 static 파일로 연결 -->
+    <link rel="stylesheet" href="{% static 'login_style.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h2>로그인</h2>
+        <!-- POST 방식으로 '/login' URL로 데이터 전송 -->
+        <form action="/login" method="post">
+            {% csrf_token %} <!-- CSRF 토큰 추가 -->
+            <input type="text" name="username" placeholder="Username" required>
+            <input type="password" name="password" placeholder="Password" required>
+            <input type="submit" value="Login">
+        </form>
+        <!-- 회원가입 버튼 클릭 시 '/signup' URL로 이동 -->
+        <button class="btn-signup" onclick="window.location.href='/signup'">Sign Up</button>
+    </div>
+</body>
+</html>

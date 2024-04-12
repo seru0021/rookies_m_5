@@ -1,0 +1,75 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>게시판</title>
+    <!-- 정적 CSS 파일 경로를 설정 -->
+    <link rel="stylesheet" href="{% static 'post_style.css' %}">
+</head>
+<body>
+    <!-- 헤더 섹션 -->
+    <div class="header">
+        <!-- 로그아웃 버튼 -->
+        <button class="button" onclick="window.location.href='{% url 'index' %}'">로그아웃</button>
+        <!-- 내정보 버튼 -->
+        <button class="button" onclick="window.location.href='{% url 'myinfo' %}'">내정보</button>
+        <!-- 글쓰기 버튼 -->
+        <button class="button" onclick="window.location.href='{% url 'posting_new' %}'">글쓰기</button>
+    </div>
+    
+    <!-- 사이드바 섹션 -->
+    <div class="sidebar">
+        <!-- 평점 선택 셀렉트 박스 -->
+        <div class="rating-select">
+            <label for="rating">평점 :</label>
+            <select name="rating" id="rating">
+                <option value="1">1점</option>
+                <option value="2">2점</option>
+                <option value="3">3점</option>
+                <option value="4">4점</option>
+                <option value="5">5점</option>
+            </select>
+        </div>
+        <!-- 지역 선택 셀렉트 박스 -->
+        <div class="region-select">
+            <label for="region">지역 :</label>
+            <select name="region" id="region">
+                <option value="seoul">서울</option>
+                <option value="gyeonggi">경기</option>
+                <option value="jeju">제주도</option>
+            </select>
+        </div>
+    </div>
+
+    <!-- 콘텐츠 섹션 -->
+    <div class="content">
+        <!-- 게시물 목록을 출력하는 반복문 -->
+        {% for post in posts %}
+        <div class="post">
+            <!-- 게시물 제목 -->
+            <h2>{{ post.title }}</h2>
+            <!-- 게시물 내용 -->
+            <p>{{ post.content }}</p>
+            <hr>
+            <!-- 공지사항 섹션 -->
+            <h3>notice</h3>
+            <!-- 별점 -->
+            <div class="comment">
+                {% if post.rating %}
+                <p>별점 : {{ post.rating }}</p>
+                {% endif %}
+            </div>
+            <!-- 해시태그 -->
+            <div class="comment">
+                {% if post.hashtag %}
+                <p>해시태그 : {{ post.hashtag }}</p>
+                {% endif %}
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</body>
+</html>

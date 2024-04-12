@@ -1,0 +1,68 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>새 게시글 작성</title>
+  <!-- 정적 CSS 파일 경로를 설정 -->
+  <link rel="stylesheet" href="{% static 'posting_new_style.css' %}">
+</head>
+<body>
+  <h1>새 게시글 만들기</h1>
+  <div class="container">
+    <div class="upload-section">
+      <h2>사진 업로드</h2>
+      <input type="file" id="file-upload">
+    </div>
+    <div class="form-section">
+      <!-- 게시글을 등록하기 위한 폼 -->
+      <form action="{% url 'posting_new' %}" method="post">
+        {% csrf_token %}
+        <!-- 지역 선택 -->
+        <label for="region">지역</label>
+        <select id="region" name="region">
+          <option value="서울">서울</option>
+          <option value="강원도">강원도</option>
+          <option value="경기도">경기도</option>
+          <option value="경상도">경상도</option>
+          <option value="전라도">전라도</option>
+          <option value="제주도">제주도</option>
+          <option value="충청도">충청도</option>
+          <!-- 기타 지역 옵션 추가 -->
+        </select><br>
+        
+        <!-- 여행지 입력 -->
+        <label for="destination">여행지</label>
+        <input type="text" id="destination" name="destination" required><br>
+        
+        <!-- 별점 선택 -->
+        <label for="rating">별점</label>
+        <select id="rating" name="rating">
+          <option value="1">★☆☆☆☆</option>
+          <option value="2">★★☆☆☆</option>
+          <option value="3">★★★☆☆</option>
+          <option value="4">★★★★☆</option>
+          <option value="5">★★★★★</option>
+        </select><br>
+        
+        <!-- 해시태그 입력 -->
+        <label for="hashtags">해시태그</label>
+        <input type="text" id="hashtags" name="hashtags"><br>
+
+        <!-- 제목 입력 -->
+        <label for="title">제목</label>
+        <input type="text" id="title" name="title" required><br>
+        
+        <!-- 내용 입력 -->
+        <label for="content">내용</label>
+        <textarea id="content" name="content" required></textarea><br>
+        
+        <!-- 폼 제출 버튼 -->
+        <input type="submit" value="등록" class="submit-button">
+      </form>
+    </div>
+  </div>
+</body>
+</html>
