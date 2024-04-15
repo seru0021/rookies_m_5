@@ -1,0 +1,77 @@
+/* 스타일 시트 */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f8ff; /* 하늘색 배경 */
+}
+.header {
+    background-color: #87ceeb; /* 하늘색 */
+    color: #fff;
+    padding: 10px;
+    display: flex;
+    justify-content: flex-end;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1); /* 그림자 효과 */
+}
+.header button {
+    margin-left: 10px;
+    background-color: #298cf0; /* 짙은 파랑색 */
+    color: #fff;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s; /* 변화에 부드럽게 전환 */
+}
+.header button:hover {
+    background-color: #4682b4; /* 파랑색 */
+}
+.sidebar {
+    width: calc(100% / 6);
+    height: 100vh;
+    background-color: #add8e6; /* 연한 파랑색 */
+    float: left;
+    padding: 10px;
+    box-sizing: border-box;
+}
+.content {
+    width: calc(5 * (100% / 6));
+    float: left;
+    padding: 10px;
+    box-sizing: border-box;
+}
+.post {
+    border: 2px solid #87cefa; /* 하늘색 */
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+    background-color: #fff; /* 흰색 배경 */
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1); /* 그림자 효과 */
+}
+.post h2 {
+    color: #4169e1; /* 짙은 파랑색 */
+}
+.post p {
+    color: #333; /* 진한 회색 */
+}
+.comment {
+    margin-left: 20px;
+}
+.rating-select,
+.region-select {
+    margin-bottom: 20px;
+}
+select {
+    padding: 8px;
+    border-radius: 5px;
+    border: 2px solid #4169e1; /* 짙은 파랑색 */
+    background-color: #fff; /* 흰색 배경 */
+    color: #4169e1; /* 짙은 파랑색 */
+    transition: border-color 0.3s, background-color 0.3s, color 0.3s; /* 변화에 부드럽게 전환 */
+}
+select:hover,
+select:focus {
+    border-color: #4682b4; /* 파랑색 */
+    background-color: #f0f8ff; /* 하늘색 배경 */
+    color: #333; /* 진한 회색 */
+}
