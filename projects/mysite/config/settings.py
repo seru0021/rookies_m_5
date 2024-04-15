@@ -15,7 +15,7 @@ SECRET_KEY = 'z@few2eb!y#ln0j$cjvt8_sdjughtp(w9$75p3jvg$oet2a4f3'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -70,10 +70,10 @@ WSGI_APPLICATION = 'config.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'moduledb',  # 데이터베이스 이름
-        'USER': 'root',  # MySQL 사용자 이름
-        'PASSWORD': 'tkdwogn',  # MySQL 비밀번호
-        'HOST': 'localhost',  # MySQL 호스트 (예: localhost)
+        'NAME': 'sampledb',  # 데이터베이스 이름
+        'USER': 'admin',  # MySQL 사용자 이름
+        'PASSWORD': 'abc123123',  # MySQL 비밀번호
+        'HOST': 'rookies-team5-db.c3w0mgioep1e.us-west-2.rds.amazonaws.com',  # MySQL 호스트 (예: localhost)
         'PORT': '3306',  # MySQL 포트 (기본값: 3306)
     }
 }
@@ -97,6 +97,15 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+AUTHENTICATION_BACKENDS = [
+    'django.contrib.auth.backends.ModelBackend',
+]
+
+# 로그인 후 리다이렉션 URL 설정
+LOGIN_REDIRECT_URL = '/'
+
+# 로그아웃 후 리다이렉션 URL 설정
+LOGOUT_REDIRECT_URL = '/'
 
 # Internationalization
 # https://docs.djangoproject.com/en/3.1/topics/i18n/

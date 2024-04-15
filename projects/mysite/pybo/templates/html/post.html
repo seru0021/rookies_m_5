@@ -12,12 +12,22 @@
 <body>
     <!-- 헤더 섹션 -->
     <div class="header">
-        <!-- 로그아웃 버튼 -->
-        <button class="button" onclick="window.location.href='{% url 'index' %}'">로그아웃</button>
-        <!-- 내정보 버튼 -->
-        <button class="button" onclick="window.location.href='{% url 'myinfo' %}'">내정보</button>
-        <!-- 글쓰기 버튼 -->
-        <button class="button" onclick="window.location.href='{% url 'posting_new' %}'">글쓰기</button>
+        {% if user.is_authenticated %}
+            <!-- 로그아웃 버튼 -->
+            <form action="{% url 'logout' %}" method="post">
+                {% csrf_token %}
+                <button type="submit" class="button">로그아웃</button>
+            </form>
+            <!-- 내정보 버튼 -->
+            <button class="button" onclick="window.location.href='{% url 'myinfo' %}'">내정보</button>
+            <!-- 글쓰기 버튼 -->
+            <button class="button" onclick="window.location.href='{% url 'posting_new' %}'">글쓰기</button>
+        {% else %}
+            <!-- 로그인 버튼 -->
+            <button class="button" onclick="window.location.href='{% url 'login' %}'">로그인</button>
+            <!-- 회원가입 버튼 -->
+            <button class="button" onclick="window.location.href='{% url 'sign_up' %}'">회원가입</button>
+        {% endif %}
     </div>
     
     <!-- 사이드바 섹션 -->
@@ -26,24 +36,25 @@
         <div class="rating-select">
             <label for="rating">평점 :</label>
             <select name="rating" id="rating">
-                <option value="1">1점</option>
-                <option value="2">2점</option>
+                <option value="">전체</option>
+                <option value="1">5점</option>
+                <option value="2">4점</option>
                 <option value="3">3점</option>
-                <option value="4">4점</option>
-                <option value="5">5점</option>
+                <option value="4">2점</option>
+                <option value="5">1점</option>
             </select>
         </div>
         <!-- 지역 선택 셀렉트 박스 -->
         <div class="region-select">
             <label for="region">지역 :</label>
             <select name="region" id="region">
+                <option value="">전체</option>
                 <option value="seoul">서울</option>
                 <option value="gyeonggi">경기</option>
                 <option value="jeju">제주도</option>
             </select>
         </div>
     </div>
-
     <!-- 콘텐츠 섹션 -->
     <div class="content">
         <!-- 게시물 목록을 출력하는 반복문 -->
@@ -71,5 +82,32 @@
         </div>
         {% endfor %}
     </div>
+    <script>
+        // 평점 선택 시 필터링 함수
+        document.getElementById('rating').addEventListener('click', function() {
+            var rating = this.value;
+            filterPosts(rating, document.getElementById('region').value);
+        });
+    
+        // 지역 선택 시 필터링 함수
+        document.getElementById('region').addEventListener('click', function() {
+            var region = this.value;
+            filterPosts(document.getElementById('rating').value, region);
+        });
+    
+        // 게시물 필터링 함수
+        function filterPosts(rating, region) {
+            var posts = document.querySelectorAll('.post');
+            posts.forEach(function(post) {
+                var postRating = post.getAttribute('data-rating');
+                var postRegion = post.getAttribute('data-region');
+                if ((rating === '' || postRating === rating) && (region === '' || postRegion === region)) {
+                    post.style.display = 'block';
+                } else {
+                    post.style.display = 'none';
+                }
+            });
+        }
+    </script>
 </body>
 </html>

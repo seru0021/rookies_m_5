@@ -24,13 +24,8 @@
         <label for="region">지역</label>
         <select id="region" name="region">
           <option value="서울">서울</option>
-          <option value="강원도">강원도</option>
           <option value="경기도">경기도</option>
-          <option value="경상도">경상도</option>
-          <option value="전라도">전라도</option>
           <option value="제주도">제주도</option>
-          <option value="충청도">충청도</option>
-          <!-- 기타 지역 옵션 추가 -->
         </select><br>
         
         <!-- 여행지 입력 -->
@@ -40,11 +35,11 @@
         <!-- 별점 선택 -->
         <label for="rating">별점</label>
         <select id="rating" name="rating">
-          <option value="1">★☆☆☆☆</option>
-          <option value="2">★★☆☆☆</option>
-          <option value="3">★★★☆☆</option>
-          <option value="4">★★★★☆</option>
           <option value="5">★★★★★</option>
+          <option value="4">★★★★☆</option>
+          <option value="3">★★★☆☆</option>
+          <option value="2">★★☆☆☆</option>
+          <option value="1">★☆☆☆☆</option>
         </select><br>
         
         <!-- 해시태그 입력 -->
@@ -64,5 +59,33 @@
       </form>
     </div>
   </div>
+  <script> // 곤
+    // 파일 업로드 input 요소
+    var fileUploadInput = document.getElementById('file-upload');
+  
+    // 파일 선택 시 이벤트 처리
+    fileUploadInput.addEventListener('change', function(event) {
+      var selectedFile = event.target.files[0]; // 선택한 파일 가져오기
+  
+      // 파일 확장자 확인
+      var fileExtension = selectedFile.name.split('.').pop().toLowerCase();
+      if (fileExtension !== 'png' && fileExtension !== 'jpg') {
+        alert('png 또는 jpg 파일만 업로드할 수 있습니다.');
+        event.target.value = ''; // 파일 선택 초기화
+        return; // 업로드 중지
+      }
+  
+      // 파일 크기 확인 (1MB 이하)
+      var maxSizeInBytes = 1048576; // 1MB를 바이트 단위로 계산
+      if (selectedFile.size > maxSizeInBytes) {
+        alert('파일 크기가 너무 큽니다. 1MB 이하의 파일만 업로드할 수 있습니다.');
+        event.target.value = ''; // 파일 선택 초기화
+        return; // 업로드 중지
+      }
+  
+      // 선택한 파일의 이름 출력
+      console.log('선택한 파일 이름:', selectedFile.name);
+    });
+  </script>  
 </body>
 </html>
