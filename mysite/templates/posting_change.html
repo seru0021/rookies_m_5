@@ -1,0 +1,23 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>게시물 수정</title>
+    <!-- 정적 CSS 파일 경로를 설정 -->
+    <link rel="stylesheet" href="{% static 'posting_change_style.css' %}">
+</head>
+<body>
+    <h1>게시물 수정</h1>
+    <div class="form-section">
+        <!-- 게시물 수정을 위한 폼 -->
+        <form action="" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form.as_p }}  <!-- 모든 필드를 <p> 태그로 랜더링 -->
+            <input type="submit" value="수정" class="submit-button">
+        </form>
+    </div>
+</body>
+</html>

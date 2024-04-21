@@ -1,0 +1,207 @@
+/* 스타일 시트 */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f8ff; /* 하늘색 배경 */
+}
+.title {
+    font-size: 32px;
+    font-weight: bold;
+    color: #007bff; /* 짙은 파랑색 */
+    margin-left: 10px;
+    margin-right: auto;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1); /* 글자 그림자 */
+}
+/* 헤더 스타일 */
+.header {
+    background-color: #87ceeb; /* 하늘색 */
+    color: #fff;
+    padding: 10px;
+    display: flex;
+    align-items: center; /* 수직 가운데 정렬 */
+    justify-content: space-between; /* 요소들 간 공간 균등 배분 */
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1); /* 그림자 효과 */
+}
+
+.nav-buttons {
+    display: flex;
+    align-items: center;
+}
+
+.button {
+    background-color: #007bff; /* 짙은 파랑색 */
+    color: #fff; /* 흰색 */
+    padding: 12px 24px;
+    margin-left: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1); /* 입체적 그림자 */
+    transition: transform 0.3s, box-shadow 0.3s; /* 변화에 부드럽게 전환 */
+}
+
+.button:hover {
+    transform: translateY(-2px); /* 마우스 호버 시 약간 위로 이동 */
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2); /* 확대된 그림자 */
+}
+
+.header .title {
+    font-size: 32px;
+    font-weight: bold;
+    color: #007bff; /* 짙은 파랑색 */
+    margin-right: 10px; /* 오른쪽 여백 */
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1); /* 글자 그림자 */
+}
+
+.header .nav-buttons {
+    display: flex;
+    align-items: center; /* 수직 가운데 정렬 */
+}
+
+.header .nav-buttons form {
+    margin-right: 10px; /* 오른쪽 여백 */
+}
+
+.header .search-input {
+    margin-right: 5px; /* 오른쪽 여백 */
+}
+
+.header .search-button,
+.header .action-button {
+    margin-right: 5px; /* 오른쪽 여백 */
+}
+
+.sidebar {
+    width: calc(100% / 6);
+    height: 100vh;
+    background-color: #add8e6; /* 연한 파랑색 */
+    float: left;
+    padding: 10px;
+    box-sizing: border-box;
+}
+.content {
+    width: calc(5 * (100% / 6));
+    float: left;
+    padding: 10px;
+    box-sizing: border-box;
+}
+.post {
+    border: 2px solid #87cefa; /* 하늘색 */
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+    background-color: #fff; /* 흰색 배경 */
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1); /* 그림자 효과 */
+}
+
+.post h2 {
+    color: #4169e1; /* 짙은 파랑색 */
+    margin-bottom: 10px; /* 제목과 내용 사이의 줄간격 */
+    word-wrap: break-word; /* 띄어쓰기 없는 단어가 컨테이너를 넘어갈 때 줄바꿈 */
+    overflow-wrap: break-word; /* 띄어쓰기 없는 단어가 컨테이너를 넘어갈 때 줄바꿈 (대체 속성) */
+}
+
+.post p {
+    color: #333; /* 진한 회색 */
+    margin-bottom: 10px; /* 제목과 내용 사이의 줄간격 */
+    word-wrap: break-word; /* 띄어쓰기 없는 단어가 컨테이너를 넘어갈 때 줄바꿈 */
+    overflow-wrap: break-word; /* 띄어쓰기 없는 단어가 컨테이너를 넘어갈 때 줄바꿈 (대체 속성) */
+}
+.comment {
+    margin-left: 20px;
+}
+
+.rating-select,
+.region-select {
+    margin-bottom: 20px;
+}
+.region {
+    display: inline-block;
+    width: 200px;
+    height: 200px;
+    background-color: #add8e6; /* 연한 하늘색 */
+    color: #007bff; /* 짙은 파랑색 */
+    margin: 20px;
+    line-height: 200px;
+    font-size: 28px;
+    border-radius: 10px;
+    cursor: pointer;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1); /* 입체적 그림자 */
+    transition: transform 0.3s, box-shadow 0.3s; /* 변화에 부드럽게 전환 */
+}
+.region:hover {
+    transform: translateY(-2px); /* 마우스 호버 시 약간 위로 이동 */
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2); /* 확대된 그림자 */
+}
+
+select {
+    padding: 8px;
+    border-radius: 5px;
+    border: 2px solid #4169e1; /* 짙은 파랑색 */
+    background-color: #fff; /* 흰색 배경 */
+    color: #4169e1; /* 짙은 파랑색 */
+    transition: border-color 0.3s, background-color 0.3s, color 0.3s; /* 변화에 부드럽게 전환 */
+}
+select:hover,
+select:focus {
+    border-color: #4682b4; /* 파랑색 */
+    background-color: #f0f8ff; /* 하늘색 배경 */
+    color: #333; /* 진한 회색 */
+}
+
+.search-form {
+    text-align: center; /* 가운데 정렬 */
+}
+
+.inner-search-form {
+    display: inline-block; /* 인라인 블록 요소로 표시 */
+}
+
+.search-input {
+    padding: 8px;
+    border: 1px solid #ccc; /* 테두리 */
+    border-radius: 4px; /* 테두리 둥글게 */
+    font-size: 16px;
+    margin-right: 5px; /* 오른쪽 여백 */
+}
+.search-button,
+.action-button {
+    padding: 12px 22px; /* 버튼의 패딩을 일괄적으로 설정 */
+    border: none; /* 테두리 없음 */
+    border-radius: 4px; /* 테두리 둥글게 */
+    background-color: #007bff; /* 배경색 */
+    color: #fff; /* 글자색 */
+    font-size: 14px; /* 글자 크기 */
+    cursor: pointer; /* 커서 모양 변경 */
+}
+/* 선택사항: 호버 효과 */
+.search-button:hover,
+.action-button:hover {
+    background-color: #0056b3; /* 호버 시 배경색 변경 */
+}
+
+.inline-form {
+    display: inline-block; /* 인라인 블록 요소로 표시 */
+    margin-right: 5px; /* 버튼들 간의 간격 조절 */
+}
+
+
+.action-button {
+    padding: 8px 12px;
+    border: none; /* 테두리 없음 */
+    border-radius: 4px; /* 테두리 둥글게 */
+    background-color: #007bff; /* 배경색 */
+    color: #fff; /* 글자색 */
+    font-size: 16px;
+    cursor: pointer; /* 커서 모양 변경 */
+}
+
+/* 선택사항: 호버 효과 */
+.action-button:hover {
+    background-color: #0056b3; /* 호버 시 배경색 변경 */
+}
+
+.nav-buttons {
+    display: inline-block; /* 인라인 블록 요소로 변경 */
+}

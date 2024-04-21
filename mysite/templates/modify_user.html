@@ -1,0 +1,43 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>회원 수정</title>
+    <!-- 정적 CSS 파일 경로를 설정 -->
+    <link rel="stylesheet" href="{% static 'modify_user_style.css' %}">
+</head>
+<body>
+    <div class="modify-user-container">
+        <h2>회원 수정</h2>
+        <!-- 사용자 정보 수정을 위한 폼 -->
+        <form action="{% url 'modify_user' %}" method="post">
+            {% csrf_token %}
+            <p>아이디: {{ user.username }}</p>
+            <div class="input-group">
+                <label for="email">이메일:</label>
+                <input type="text" id="email" name="email" maxlength="254" required>
+            </div>
+            <div class="input-group">
+                <label for="password">새로운 비밀번호:</label>
+                <input type="password" id="password" name="password" maxlength="50" required>
+            </div>
+            <div class="input-group">
+                <label for="confirm_password">비밀번호 확인:</label>
+                <input type="password" id="confirm_password" name="confirm_password" maxlength="50" required>
+            </div>
+            <!-- 폼 제출 버튼 -->
+            <button type="submit">수정 완료</button>
+            {% if messages %}
+                <ul class="messages">
+            {% for message in messages %}
+                <li>{{ message }}</li>
+            {% endfor %}
+    </ul>
+{% endif %}
+        </form>
+    </div>
+</body>
+</html>
