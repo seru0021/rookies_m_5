@@ -3,7 +3,8 @@ from django.urls import path, include
 from pybo import views
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path('admin/', admin.site.urls, name='admin'),  # 'admin' 네임스페이스 추가
     path('', include('pybo.urls')),
-    path('board/', include('common.urls')),  # common 앱의 URL 패턴을 board/ 아래로 변경
+    path('common/', include('common.urls'), name='common'),  # 'common' 네임스페이스 추가
+    path('', views.index, name='index'),  # '/' 에 해당되는 path
 ]
