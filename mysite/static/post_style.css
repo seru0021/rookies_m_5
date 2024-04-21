@@ -86,6 +86,10 @@ body {
     padding: 10px;
     box-sizing: border-box;
 }
+.image-wrapper img {
+    max-width: 100%;
+    height: auto;
+}
 .post {
     border: 2px solid #87cefa; /* 하늘색 */
     border-radius: 10px;
@@ -97,20 +101,19 @@ body {
 
 .post h2 {
     color: #4169e1; /* 짙은 파랑색 */
-    margin-bottom: 10px; /* 제목과 내용 사이의 줄간격 */
-    word-wrap: break-word; /* 띄어쓰기 없는 단어가 컨테이너를 넘어갈 때 줄바꿈 */
-    overflow-wrap: break-word; /* 띄어쓰기 없는 단어가 컨테이너를 넘어갈 때 줄바꿈 (대체 속성) */
 }
 
 .post p {
     color: #333; /* 진한 회색 */
-    margin-bottom: 10px; /* 제목과 내용 사이의 줄간격 */
-    word-wrap: break-word; /* 띄어쓰기 없는 단어가 컨테이너를 넘어갈 때 줄바꿈 */
-    overflow-wrap: break-word; /* 띄어쓰기 없는 단어가 컨테이너를 넘어갈 때 줄바꿈 (대체 속성) */
+    white-space: pre-wrap; /* 줄 바꿈 보존 */
+    word-wrap: break-word; /* 단어를 나누어 줄 바꿈 */
 }
+
 .comment {
     margin-left: 20px;
 }
+
+
 
 .rating-select,
 .region-select {
@@ -134,7 +137,15 @@ body {
     transform: translateY(-2px); /* 마우스 호버 시 약간 위로 이동 */
     box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2); /* 확대된 그림자 */
 }
+.post-details {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
 
+.create-date {
+    margin-right: 10px; /* 수정, 삭제 버튼과의 간격 조정 */
+}
 select {
     padding: 8px;
     border-radius: 5px;
