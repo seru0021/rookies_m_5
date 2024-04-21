@@ -18,10 +18,9 @@ urlpatterns = [
     path('posting_new/', views.posting_new, name='posting_new'),
     path('modify_user/', views.modify_user, name='modify_user'),
     path('post/<int:post_id>/posting_change/', views.posting_change, name='posting_change'),
-    path('__debug__/', include('debug_toolbar.urls')),
     path('post/<int:post_id>/posting_delete/', views.posting_delete, name='posting_delete'),
     # path('common:logout/', views.logout_view, name='logout'),
-    re_path(r'^.*$', TemplateView.as_view(template_name="404.html"), name="404"),
+    # re_path(r'^.*$', TemplateView.as_view(template_name="404.html"), name="404"),
     ]
 
 # 이미지 URL 설정
