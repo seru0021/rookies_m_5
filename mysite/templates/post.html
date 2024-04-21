@@ -62,31 +62,33 @@
         {% for post in posts %}
         <div class="post" data-rating="{{ post.rating }}" data-region="{{ post.region }}">
             <!-- 이미지 -->
-            <div style="text-align: center;">
+                <div class="image-wrapper" style="text-align: center;">
                 {% if post.image %}
-                <img src="{{ post.image.url }}" style="max-width: 1200px;">
+                <img src="{{ post.image.url }}">
                 {% endif %}
             </div>
             <!-- 게시물 제목 -->
-            <h2>{{ post.title|linebreaksbr }}</h2>
+            <h2>{{ post.title }}</h2>
             <!-- 게시물 내용 -->
-            <p>{{ post.content|linebreaksbr }}</p>
+            <p>{{ post.content }}</p>
             <!-- 별점 -->
             <p>{{ post.rating }}</p>
             <!-- 해시태그 -->
             <p>{{ post.hashtags }}</p>
 
-            <!-- 수정, 삭제 버튼 -->
-            <div>
-                {% if user.is_authenticated and post.author == user %}
-                <form action="{% url 'posting_change' post.id %}" method="GET" class="inline-form">
-                    <button type="submit" class="action-button">수정</button>
-                </form>
-                <form action="{% url 'posting_delete' post.id %}" method="POST" class="inline-form" onsubmit="return confirm('정말 삭제하시겠습니까?');">
-                    {% csrf_token %}
-                    <button type="submit" class="action-button">삭제</button>
-                </form>
-                {% endif %}
+            <div class="post-details">
+                <p class="create-date">{{ post.create_date|date:"Y년 m월 d일" }} {% if post.create_date|date:"P" == "오후" %}오전{% else %}오후{% endif %}&nbsp;{{ post.create_date|date:"g:i" }}</p>
+                <div class="action-buttons">
+                    {% if user.is_authenticated and post.author == user %}
+                    <form action="{% url 'posting_change' post.id %}" method="GET" class="inline-form">
+                        <button type="submit" class="action-button">수정</button>
+                    </form>
+                    <form action="{% url 'posting_delete' post.id %}" method="POST" class="inline-form" onsubmit="return confirm('정말 삭제하시겠습니까?');">
+                        {% csrf_token %}
+                        <button type="submit" class="action-button">삭제</button>
+                    </form>
+                    {% endif %}
+                </div>
             </div>
         </div>
         {% endfor %}
