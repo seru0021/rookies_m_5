@@ -1,0 +1,5 @@
+rookies033  작업용사이트 : https://online.visual-paradigm.com/drive/#diagramlist:proj=0&dashboard
+C:\Users\jds72\Downloads>cd C:\Users\jds72\Downloads\keypair
+
+C:\Users\jds72\Downloads\keypair>dir
+C:\Users\jds72\Downloads\keypair> ssh -i rookies033-keypair-web.pem ubuntu@3.232.95.124
