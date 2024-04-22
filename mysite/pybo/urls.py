@@ -10,8 +10,7 @@ from django.contrib import admin
 
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('common/', include('common.urls')), # 404 not found 안뜸! 곤
+    
     path('', views.index, name='index'),
     path('post/', views.post, name='post'),
     path('search/', views.search_results, name='search_results'),
